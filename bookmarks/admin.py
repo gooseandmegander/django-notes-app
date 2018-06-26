@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from bookmarks.models import BookMark
+from bookmarks.models import BookMark_Folder
+from bookmarks.models import PersonalBookMark
+
+admin.site.register((BookMark, BookMark_Folder, PersonalBookMark))
