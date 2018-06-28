@@ -14,9 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from django.conf.urls import url, include
 from rest_framework import routers
+from rest_framework.authtoken import views
 
 from notes.api import NoteViewSet, PersonalNoteViewSet
 from bookmarks.api import BookMarkViewSet, PersonalBookMarkViewSet
@@ -30,4 +31,5 @@ router.register(r'personal-bookmarks', PersonalBookMarkViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'api/', include(router.urls)),
+    re_path(r'api-token-auth/', views.obtain_auth_token),
 ]
