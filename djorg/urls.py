@@ -19,10 +19,13 @@ from django.conf.urls import url, include
 from rest_framework import routers
 
 from notes.api import NoteViewSet, PersonalNoteViewSet
+from bookmarks.api import BookMarkViewSet, PersonalBookMarkViewSet
 
 router = routers.DefaultRouter()
 router.register(r'notes', NoteViewSet)
 router.register(r'personal-notes', PersonalNoteViewSet)
+router.register(r'bookmarks', BookMarkViewSet)
+router.register(r'personal-bookmarks', PersonalBookMarkViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
