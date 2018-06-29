@@ -13,6 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+# URLconf
+
 from django.contrib import admin
 from django.urls import path, re_path
 from django.conf.urls import url, include
@@ -30,6 +33,6 @@ router.register(r'personal-bookmarks', PersonalBookMarkViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'api/', include(router.urls)),
+    path('api/', include(router.urls)),
     re_path(r'api-token-auth/', views.obtain_auth_token),
 ]
